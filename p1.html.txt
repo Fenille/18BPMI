@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestão 18º BPM/I - Portal de Módulos</title>
+  <title>P/1 - Pessoal - 18º BPM/I</title>
 
   <style>
     :root{
@@ -35,7 +35,6 @@
       padding:16px 12px 24px;
     }
 
-    /* ===== WRAPPER GERAL ===== */
     .app-shell{
       max-width:1800px;
       margin:0 auto;
@@ -75,7 +74,6 @@
       color:var(--cinza);
     }
 
-    /* BRASÃO CENTRAL ENTRE AS LINHAS */
     .brasao-header{
       position:absolute;
       left:50%;
@@ -311,30 +309,29 @@
       text-align:right;
     }
 
-    /* ===== GRID DE MÓDULOS ===== */
-    .modulos-grid{
+    .pastas-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
       gap:var(--gap);
       margin-top:8px;
     }
 
-    .modulo-card{
+    .pasta-card{
       background:var(--card-bg);
       border-radius:var(--radius);
       border:1px solid rgba(255,255,255,0.06);
-      padding:18px 14px;
+      padding:16px 12px;
       text-align:center;
       cursor:pointer;
       box-shadow:0 8px 26px rgba(0,0,0,0.8);
       transition:
         transform 0.16s ease,
-        box-shadow 0.16s ease,
+        box-shadow 0.16s.ease,
         border-color 0.16s ease,
         background 0.16s ease;
     }
 
-    .modulo-card a{
+    .pasta-card a{
       text-decoration:none;
       color:var(--amarelo);
       display:flex;
@@ -343,7 +340,7 @@
       gap:10px;
     }
 
-    .modulo-card img{
+    .pasta-card img{
       width:62px;
       height:62px;
       object-fit:contain;
@@ -351,43 +348,36 @@
       transition:transform 0.16s ease, filter 0.16s ease;
     }
 
-    .modulo-sigla{
-      font-size:1.3rem;
+    .pasta-titulo{
       font-weight:bold;
-      letter-spacing:2px;
       text-transform:uppercase;
-    }
-
-    .modulo-nome{
       font-size:0.9rem;
-      text-transform:uppercase;
-      color:var(--cinza);
+      letter-spacing:0.5px;
     }
 
-    .modulo-desc{
+    .pasta-desc{
       font-size:0.8rem;
-      color:var(--cinza-medio);
+      color:var(--cinza);
       max-width:220px;
     }
 
-    .modulo-card:hover{
+    .pasta-card:hover{
       transform:translateY(-4px);
       box-shadow:0 14px 32px rgba(0,0,0,0.95);
       border-color:rgba(255,255,0,0.6);
       background:radial-gradient(circle at top, rgba(255,255,0,0.12), rgba(10,10,15,0.98));
     }
 
-    .modulo-card:hover img{
+    .pasta-card:hover img{
       transform:translateY(-2px) scale(1.03);
       filter:drop-shadow(0 0 7px rgba(255,255,0,0.9));
     }
 
-    .modulo-card:active{
+    .pasta-card:active{
       transform:translateY(0) scale(0.98);
       box-shadow:0 5px 18px rgba(0,0,0,0.9);
     }
 
-    /* ===== RODAPÉ ===== */
     footer{
       margin-top:24px;
       padding-top:10px;
@@ -440,7 +430,6 @@
         font-size:0.95rem;
       }
 
-      /* Brasão entra no fluxo no mobile, sem sobrepor título */
       .brasao-header{
         position:static;
         transform:none;
@@ -472,7 +461,7 @@
         padding:0 4px;
       }
 
-      .modulos-grid{
+      .pastas-grid{
         grid-template-columns:repeat(2, minmax(0,1fr));
         gap:16px;
       }
@@ -510,15 +499,16 @@
         text-align:left;
       }
 
-      .modulos-grid{
+      .pastas-grid{
         grid-template-columns:1fr;
+        gap:14px;
       }
 
-      .modulo-card{
+      .pasta-card{
         padding:12px 10px;
       }
 
-      .modulo-card img{
+      .pasta-card img{
         width:54px;
         height:54px;
       }
@@ -531,8 +521,8 @@
 <div class="app-shell">
   <header>
     <div class="header-left">
-      <h1>Gestão 18º BPM/I</h1>
-      <h2>Portal de Módulos Internos</h2>
+      <h1>P/1 - Pessoal</h1>
+      <h2>18º Batalhão de Polícia Militar do Interior</h2>
     </div>
 
     <img src="brasao18.png" alt="Brasão do 18º BPM/I" class="brasao-header">
@@ -544,14 +534,12 @@
   </header>
 
   <div class="context-bar">
-    <div>Selecione o módulo desejado para acessar os respectivos painéis, planilhas e documentos.</div>
-    <div class="context-pill">Módulos do 18º BPM/I</div>
+    <div>Gestão de efetivo, escalas, movimentações e dados de pessoal do 18º BPM/I.</div>
+    <div class="context-pill">Módulo P/1</div>
   </div>
 
-  <!-- ===== SLIDESHOW ===== -->
   <div class="banner-wrapper">
     <div class="banner-topo">
-
       <div class="slide active"><img src="banner1.jpg" alt="Banner 1"></div>
       <div class="slide"><img src="banner2.jpg" alt="Banner 2"></div>
       <div class="slide"><img src="banner3.jpg" alt="Banner 3"></div>
@@ -559,7 +547,6 @@
       <div class="slide"><img src="banner5.jpg" alt="Banner 5"></div>
       <div class="slide"><img src="banner6.jpg" alt="Banner 6"></div>
       <div class="slide"><img src="banner7.jpg" alt="Banner 7"></div>
-
       <div class="banner-overlay"></div>
 
       <div class="nav-btn nav-prev" id="prevBtn">&#10094;</div>
@@ -579,100 +566,68 @@
 
   <main>
     <p class="intro">
-      Portal interno do 18º BPM/I para navegação entre os módulos de gestão:
-      Pessoal, Informações, Operações, Logística, Comunicação Social, Justiça e Disciplina
-      e Gestão pela Qualidade. Utilize os atalhos abaixo para acessar cada ambiente.
+      Este módulo concentra os principais atalhos de trabalho relacionados a pessoal:
+      efetivo, escalas, movimentações, controle de férias e demais registros administrativos.
     </p>
 
     <div class="section-header">
       <div class="section-title">
-        <span>Módulos</span> • acesso rápido
+        <span>Atalhos do módulo</span> • pastas principais
       </div>
       <div class="section-meta">
-        Cada módulo abre em nova página com atalhos em formato de pastas.
+        Utilize as pastas abaixo para acessar planilhas, formulários e documentos vinculados ao P/1.
       </div>
     </div>
 
-    <section class="modulos-grid">
-      <!-- P/1 -->
-      <div class="modulo-card">
-        <a href="p1.html" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Módulo P/1">
-          <div class="modulo-sigla">P/1</div>
-          <div class="modulo-nome">Pessoal</div>
-          <div class="modulo-desc">Efetivo, escalas, movimentações e dados de pessoal.</div>
+    <section class="pastas-grid">
+      <div class="pasta-card">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img src="pasta.png" alt="Efetivo Geral">
+          <div class="pasta-titulo">Efetivo Geral</div>
+          <div class="pasta-desc">Planilhas e relatórios consolidados de efetivo do batalhão.</div>
         </a>
       </div>
 
-      <!-- P/2 -->
-      <div class="modulo-card">
-        <a href="p2.html" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Módulo P/2">
-          <div class="modulo-sigla">P/2</div>
-          <div class="modulo-nome">Informações</div>
-          <div class="modulo-desc">Informações, estatísticas direcionadas e análises reservadas.</div>
+      <div class="pasta-card">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img src="pasta.png" alt="Escalas de Serviço">
+          <div class="pasta-titulo">Escalas de Serviço</div>
+          <div class="pasta-desc">Controles de escalas, trocas e históricos de serviço.</div>
         </a>
       </div>
 
-      <!-- P/3 -->
-      <div class="modulo-card">
-        <a href="p3.html" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Módulo P/3">
-          <div class="modulo-sigla">P/3</div>
-          <div class="modulo-nome">Operações</div>
-          <div class="modulo-desc">Operações, produtividade, planejamento e resultados.</div>
+      <div class="pasta-card">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img src="pasta.png" alt="Movimentações">
+          <div class="pasta-titulo">Movimentações</div>
+          <div class="pasta-desc">Registros de movimentações internas e externas de pessoal.</div>
         </a>
       </div>
 
-      <!-- P/4 -->
-      <div class="modulo-card">
-        <a href="p4.html" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Módulo P/4">
-          <div class="modulo-sigla">P/4</div>
-          <div class="modulo-nome">Logística</div>
-          <div class="modulo-desc">Viaturas, materiais, almoxarifado e manutenção.</div>
+      <div class="pasta-card">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img src="pasta.png" alt="Férias e Licenças">
+          <div class="pasta-titulo">Férias e Licenças</div>
+          <div class="pasta-desc">Controles de férias, licenças e afastamentos.</div>
         </a>
       </div>
 
-      <!-- P/5 -->
-      <div class="modulo-card">
-        <a href="p5.html" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Módulo P/5">
-          <div class="modulo-sigla">P/5</div>
-          <div class="modulo-nome">Comunicação Social</div>
-          <div class="modulo-desc">Mídias, relatórios institucionais e material de divulgação.</div>
-        </a>
-      </div>
-
-      <!-- PJMD -->
-      <div class="modulo-card">
-        <a href="pjmd.html" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Módulo PJMD">
-          <div class="modulo-sigla">PJMD</div>
-          <div class="modulo-nome">Justiça e Disciplina</div>
-          <div class="modulo-desc">Procedimentos, termos, sindicâncias e acompanhamentos.</div>
-        </a>
-      </div>
-
-      <!-- Qualidade -->
-      <div class="modulo-card">
-        <a href="qualidade.html" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Módulo Qualidade">
-          <div class="modulo-sigla">Qualidade</div>
-          <div class="modulo-nome">Gestão pela Qualidade</div>
-          <div class="modulo-desc">Indicadores, relatórios e controles da Gestão pela Qualidade.</div>
+      <div class="pasta-card">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img src="pasta.png" alt="Outros Documentos">
+          <div class="pasta-titulo">Outros Documentos</div>
+          <div class="pasta-desc">Modelos, termos e demais arquivos administrativos do P/1.</div>
         </a>
       </div>
     </section>
   </main>
 
   <footer>
-    <span>Gestão 18º BPM/I • Portal de Módulos</span>
+    <span>Módulo P/1 - Pessoal • 18º BPM/I</span>
     <span>Ambiente interno – utilização restrita ao efetivo autorizado.</span>
   </footer>
 </div>
 
-<!-- ===== SCRIPT DO SLIDESHOW ===== -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelectorAll('.slide');
