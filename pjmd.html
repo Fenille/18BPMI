@@ -46,6 +46,34 @@
       border-bottom:1px solid rgba(255,255,255,0.08);
       position:relative;
     }
+
+    /* BOTÃO VOLTAR */
+    .btn-voltar{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,0,0.6);
+      background:rgba(0,0,0,0.8);
+      color:var(--amarelo);
+      font-size:0.8rem;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      text-decoration:none;
+      cursor:pointer;
+      box-shadow:0 0 10px rgba(0,0,0,0.8);
+      transition:0.15s ease;
+    }
+    .btn-voltar:hover{
+      background:rgba(0,0,0,1);
+      border-color:var(--amarelo-neon);
+      box-shadow:0 0 12px rgba(255,255,0,0.9);
+    }
+    .btn-voltar:active{
+      transform:scale(0.97);
+    }
+
     .header-left{text-align:left;}
     header h1{
       font-size:2.1rem;
@@ -288,6 +316,9 @@
 
 <div class="app-shell">
   <header>
+    <!-- BOTÃO VOLTAR PARA PÁGINA PRINCIPAL -->
+    <a href="index.html" class="btn-voltar">⬅ Voltar</a>
+
     <div class="header-left">
       <h1>PJMD - Justiça e Disciplina</h1>
       <h2>18º Batalhão de Polícia Militar do Interior</h2>
