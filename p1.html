@@ -45,16 +45,14 @@
       padding:18px 18px 26px;
     }
 
-    /* ===== CABEÇALHO ===== */
+    /* ===== CABEÇALHO: BOTÃO VOLTAR | CABEÇALHO | BRASÃO ===== */
     header{
-      display:flex;
-      flex-wrap:wrap;
+      display:grid;
+      grid-template-columns:auto 1fr auto; /* BOTÃO - TÍTULO - BRASÃO */
       align-items:center;
-      justify-content:space-between;
-      gap:10px;
+      gap:12px;
       padding:10px 4px 16px;
       border-bottom:1px solid rgba(255,255,255,0.08);
-      position:relative;
     }
 
     /* BOTÃO VOLTAR */
@@ -74,6 +72,7 @@
       cursor:pointer;
       box-shadow:0 0 10px rgba(0,0,0,0.8);
       transition:0.15s ease;
+      justify-self:start;
     }
 
     .btn-voltar:hover{
@@ -86,36 +85,38 @@
       transform:scale(0.97);
     }
 
-    .header-left{
-      text-align:left;
+    /* CABEÇALHO CENTRAL (TEXTO) */
+    .header-center{
+      text-align:center;
     }
 
-    header h1{
+    .header-center h1{
       font-size:2.1rem;
       text-transform:uppercase;
       letter-spacing:2px;
       margin-bottom:4px;
     }
 
-    header h2{
+    .header-center h2{
       font-size:1.1rem;
       font-weight:normal;
       color:var(--cinza);
     }
 
+    /* BRASÃO À DIREITA, SEM SOBREPOSIÇÃO */
     .brasao-header{
-      position:absolute;
-      left:50%;
-      top:40%;
-      transform:translate(-50%, -50%);
-      height:130px;
+      height:200px;
       width:auto;
       filter:drop-shadow(0 0 10px rgba(0,0,0,0.9));
       pointer-events:none;
+      justify-self:end;
+      display:block;
     }
 
+    /* BADGE NA LINHA DE BAIXO */
     .header-badge{
-      align-self:flex-start;
+      grid-column:1 / -1; /* ocupa a linha toda abaixo */
+      margin-top:10px;
       padding:8px 16px;
       border-radius:999px;
       border:1px solid rgba(255,255,0,0.5);
@@ -126,6 +127,7 @@
       color:var(--amarelo-neon);
       display:flex;
       align-items:center;
+      justify-content:center;
       gap:8px;
       box-shadow:0 0 12px rgba(255,255,0,0.35);
     }
@@ -242,7 +244,7 @@
       height:62px;
       object-fit:contain;
       filter:drop-shadow(0 0 4px rgba(0,0,0,0.9));
-      transition:transform 0.16s ease, filter 0.16s.ease;
+      transition:transform 0.16s ease, filter 0.16s ease;
     }
 
     .pasta-titulo{
@@ -304,35 +306,23 @@
       }
 
       header{
-        flex-direction:column;
-        align-items:center;
-        gap:8px;
-      }
-
-      .header-left{
+        grid-template-columns:1fr;
+        justify-items:center;
         text-align:center;
       }
 
-      .header-badge{
-        align-self:center;
-        justify-content:center;
-        font-size:0.78rem;
-      }
-
-      header h1{
-        font-size:1.7rem;
-      }
-
-      header h2{
-        font-size:0.95rem;
+      .btn-voltar{
+        justify-self:flex-start;
       }
 
       .brasao-header{
-        position:static;
-        transform:none;
-        top:auto;
-        height:90px;
-        margin-top:6px;
+        height:130px;
+        justify-self:center;
+        margin-top:4px;
+      }
+
+      .header-badge{
+        margin-top:8px;
       }
 
       .context-bar{
@@ -368,7 +358,7 @@
       }
 
       .brasao-header{
-        height:78px;
+        height:110px;
       }
 
       .section-header{
@@ -401,16 +391,19 @@
 
 <div class="app-shell">
   <header>
-    <!-- BOTÃO VOLTAR PARA PÁGINA PRINCIPAL -->
+    <!-- BOTÃO VOLTAR -->
     <a href="index.html" class="btn-voltar">⬅ Voltar</a>
 
-    <div class="header-left">
+    <!-- CABEÇALHO CENTRAL -->
+    <div class="header-center">
       <h1>P/1 - Pessoal</h1>
       <h2>18º Batalhão de Polícia Militar do Interior</h2>
     </div>
 
+    <!-- BRASÃO NA DIREITA -->
     <img src="brasao18.png" alt="Brasão do 18º BPM/I" class="brasao-header">
 
+    <!-- BADGE NA LINHA DE BAIXO -->
     <div class="header-badge">
       <div class="header-badge-dot"></div>
       <span>Sistema de Gestão • Uso Interno</span>

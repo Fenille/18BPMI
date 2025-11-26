@@ -37,17 +37,13 @@
       padding:18px 18px 26px;
     }
     header{
-      display:flex;
-      flex-wrap:wrap;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
       align-items:center;
-      justify-content:space-between;
-      gap:10px;
+      gap:12px;
       padding:10px 4px 16px;
       border-bottom:1px solid rgba(255,255,255,0.08);
-      position:relative;
     }
-
-    /* BOTÃO VOLTAR */
     .btn-voltar{
       display:inline-flex;
       align-items:center;
@@ -64,40 +60,38 @@
       cursor:pointer;
       box-shadow:0 0 10px rgba(0,0,0,0.8);
       transition:0.15s ease;
+      justify-self:start;
     }
     .btn-voltar:hover{
-      background:rgba(0,0,0,1);
+      background:black;
       border-color:var(--amarelo-neon);
       box-shadow:0 0 12px rgba(255,255,0,0.9);
     }
-    .btn-voltar:active{
-      transform:scale(0.97);
+    .header-center{
+      text-align:center;
     }
-
-    .header-left{text-align:left;}
-    header h1{
+    .header-center h1{
       font-size:2.1rem;
       text-transform:uppercase;
       letter-spacing:2px;
       margin-bottom:4px;
     }
-    header h2{
+    .header-center h2{
       font-size:1.1rem;
       font-weight:normal;
       color:var(--cinza);
     }
     .brasao-header{
-      position:absolute;
-      left:50%;
-      top:40%;
-      transform:translate(-50%, -50%);
-      height:130px;
+      height:200px;
       width:auto;
       filter:drop-shadow(0 0 10px rgba(0,0,0,0.9));
       pointer-events:none;
+      justify-self:end;
+      display:block;
     }
     .header-badge{
-      align-self:flex-start;
+      grid-column:1 / -1;
+      margin-top:10px;
       padding:8px 16px;
       border-radius:999px;
       border:1px solid rgba(255,255,0,0.5);
@@ -108,6 +102,7 @@
       color:var(--amarelo-neon);
       display:flex;
       align-items:center;
+      justify-content:center;
       gap:8px;
       box-shadow:0 0 12px rgba(255,255,0,0.35);
     }
@@ -186,10 +181,11 @@
       text-align:center;
       cursor:pointer;
       box-shadow:0 8px 26px rgba(0,0,0,0.8);
-      transition:transform 0.16s ease,
-                 box-shadow 0.16s ease,
-                 border-color 0.16s ease,
-                 background 0.16s ease;
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        border-color 0.16s ease,
+        background 0.16s ease;
     }
     .pasta-card a{
       text-decoration:none;
@@ -227,10 +223,6 @@
       transform:translateY(-2px) scale(1.03);
       filter:drop-shadow(0 0 7px rgba(255,255,0,0.9));
     }
-    .pasta-card:active{
-      transform:translateY(0) scale(0.98);
-      box-shadow:0 5px 18px rgba(0,0,0,0.9);
-    }
     footer{
       margin-top:24px;
       padding-top:10px;
@@ -243,6 +235,7 @@
       gap:8px;
     }
     footer span{opacity:0.9;}
+
     @media(max-width:720px){
       body{padding:16px 10px 22px;}
       .app-shell{
@@ -251,25 +244,17 @@
         max-width:100%;
       }
       header{
-        flex-direction:column;
-        align-items:center;
-        gap:8px;
+        grid-template-columns:1fr;
+        justify-items:center;
+        text-align:center;
       }
-      .header-left{text-align:center;}
-      .header-badge{
-        align-self:center;
-        justify-content:center;
-        font-size:0.78rem;
-      }
-      header h1{font-size:1.7rem;}
-      header h2{font-size:0.95rem;}
+      .btn-voltar{justify-self:flex-start;}
       .brasao-header{
-        position:static;
-        transform:none;
-        top:auto;
-        height:90px;
-        margin-top:6px;
+        height:130px;
+        justify-self:center;
+        margin-top:4px;
       }
+      .header-badge{margin-top:8px;}
       .context-bar{
         flex-direction:column;
         gap:6px;
@@ -289,12 +274,11 @@
         align-items:flex-start;
       }
     }
+
     @media(max-width:480px){
       body{padding:10px 6px 18px;}
-      .app-shell{
-        padding:12px 10px 18px;
-      }
-      .brasao-header{height:78px;}
+      .app-shell{padding:12px 10px 18px;}
+      .brasao-header{height:110px;}
       .section-header{
         flex-direction:column;
         align-items:flex-start;
@@ -313,13 +297,12 @@
   </style>
 </head>
 <body>
-
 <div class="app-shell">
+
   <header>
-    <!-- BOTÃO VOLTAR PARA PÁGINA PRINCIPAL -->
     <a href="index.html" class="btn-voltar">⬅ Voltar</a>
 
-    <div class="header-left">
+    <div class="header-center">
       <h1>P/5 - Comunicação Social</h1>
       <h2>18º Batalhão de Polícia Militar do Interior</h2>
     </div>
@@ -333,15 +316,14 @@
   </header>
 
   <div class="context-bar">
-    <div>Gestão da comunicação social, mídias, boletins institucionais e material de divulgação.</div>
+    <div>Gestão de comunicação institucional, mídias, eventos e imagem do 18º BPM/I.</div>
     <div class="context-pill">Módulo P/5</div>
   </div>
 
   <main>
     <p class="intro">
-      Este módulo organiza os produtos de comunicação social: mídias, boletins,
-      releases, relatórios institucionais, campanhas e materiais gráficos
-      utilizados pelo 18º BPM/I nas ações de visibilidade e transparência.
+      Este módulo concentra as ações de comunicação social do batalhão: divulgação de ações,
+      interação com a comunidade, redes sociais, eventos e materiais institucionais.
     </p>
 
     <div class="section-header">
@@ -349,48 +331,48 @@
         <span>Atalhos do módulo</span> • pastas principais
       </div>
       <div class="section-meta">
-        Utilize as pastas abaixo para acessar os arquivos do P/5.
+        Utilize as pastas para acessar releases, imagens e conteúdos de divulgação.
       </div>
     </div>
 
     <section class="pastas-grid">
       <div class="pasta-card">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Boletins e Releases">
-          <div class="pasta-titulo">Boletins e Releases</div>
-          <div class="pasta-desc">Boletins internos, releases e comunicados oficiais.</div>
+        <a href="#">
+          <img src="pasta.png" alt="Releases e Notícias">
+          <div class="pasta-titulo">Releases e Notícias</div>
+          <div class="pasta-desc">Textos oficiais, notas e conteúdos preparados para divulgação.</div>
         </a>
       </div>
 
       <div class="pasta-card">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Mídias e Imagens">
-          <div class="pasta-titulo">Mídias e Imagens</div>
-          <div class="pasta-desc">Banco de imagens, artes e registros fotográficos.</div>
+        <a href="#">
+          <img src="pasta.png" alt="Redes Sociais">
+          <div class="pasta-titulo">Redes Sociais</div>
+          <div class="pasta-desc">Materiais preparados para publicações em redes sociais.</div>
         </a>
       </div>
 
       <div class="pasta-card">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Relatórios Institucionais">
-          <div class="pasta-titulo">Relatórios Institucionais</div>
-          <div class="pasta-desc">Relatórios, apresentações e materiais de prestação de contas.</div>
+        <a href="#">
+          <img src="pasta.png" alt="Eventos e Cerimônias">
+          <div class="pasta-titulo">Eventos e Cerimônias</div>
+          <div class="pasta-desc">Planejamentos, roteiros e registros de eventos institucionais.</div>
         </a>
       </div>
 
       <div class="pasta-card">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Campanhas e Projetos">
-          <div class="pasta-titulo">Campanhas e Projetos</div>
-          <div class="pasta-desc">Campanhas educativas, projetos sociais e ações comunitárias.</div>
+        <a href="#">
+          <img src="pasta.png" alt="Imagens Oficiais">
+          <div class="pasta-titulo">Imagens Oficiais</div>
+          <div class="pasta-desc">Banco de fotos institucionais e identidades visuais.</div>
         </a>
       </div>
 
       <div class="pasta-card">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="pasta.png" alt="Outros Materiais">
-          <div class="pasta-titulo">Outros Materiais</div>
-          <div class="pasta-desc">Arquivos diversos de apoio à comunicação social.</div>
+        <a href="#">
+          <img src="pasta.png" alt="Outros Documentos">
+          <div class="pasta-titulo">Outros Documentos</div>
+          <div class="pasta-desc">Materiais complementares da comunicação social.</div>
         </a>
       </div>
     </section>
@@ -400,7 +382,7 @@
     <span>Módulo P/5 - Comunicação Social • 18º BPM/I</span>
     <span>Ambiente interno – utilização restrita ao efetivo autorizado.</span>
   </footer>
-</div>
 
+</div>
 </body>
 </html>
