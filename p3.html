@@ -17,7 +17,9 @@
       --radius:14px;
       --shadow-soft:0 14px 40px rgba(0,0,0,0.8);
     }
+
     *{box-sizing:border-box;margin:0;padding:0;}
+
     body{
       min-height:100vh;
       background:radial-gradient(circle at top, #202020 0, #050509 50%, #000 100%);
@@ -27,6 +29,7 @@
       overflow-x:hidden;
       padding:16px 12px 24px;
     }
+
     .app-shell{
       max-width:1800px;
       margin:0 auto;
@@ -36,6 +39,7 @@
       box-shadow:var(--shadow-soft);
       padding:18px 18px 26px;
     }
+
     header{
       display:grid;
       grid-template-columns:auto 1fr auto;
@@ -44,6 +48,7 @@
       padding:10px 4px 16px;
       border-bottom:1px solid rgba(255,255,255,0.08);
     }
+
     .btn-voltar{
       display:inline-flex;
       align-items:center;
@@ -62,11 +67,13 @@
       transition:0.15s ease;
       justify-self:start;
     }
+
     .btn-voltar:hover{
       background:black;
       border-color:var(--amarelo-neon);
       box-shadow:0 0 12px rgba(255,255,0,0.9);
     }
+
     .header-center{
       text-align:center;
     }
@@ -81,6 +88,7 @@
       font-weight:normal;
       color:var(--cinza);
     }
+
     .brasao-header{
       height:200px;
       width:auto;
@@ -89,6 +97,7 @@
       justify-self:end;
       display:block;
     }
+
     .header-badge{
       grid-column:1 / -1;
       margin-top:10px;
@@ -113,6 +122,7 @@
       background:var(--amarelo-neon);
       box-shadow:0 0 8px rgba(255,255,0,0.9);
     }
+
     .context-bar{
       margin-top:10px;
       margin-bottom:18px;
@@ -128,6 +138,7 @@
       gap:10px;
       flex-wrap:wrap;
     }
+
     .context-pill{
       padding:4px 10px;
       border-radius:999px;
@@ -138,7 +149,9 @@
       letter-spacing:1px;
       white-space:nowrap;
     }
+
     main{padding:4px 2px 0;}
+
     .intro{
       margin:0 auto 22px;
       max-width:1200px;
@@ -146,6 +159,7 @@
       color:var(--cinza);
       line-height:1.45;
     }
+
     .section-header{
       display:flex;
       align-items:center;
@@ -159,7 +173,6 @@
       font-size:0.98rem;
       text-transform:uppercase;
       letter-spacing:1px;
-      color:var(--cinza);
     }
     .section-title span{color:var(--amarelo-neon);}
     .section-meta{
@@ -167,12 +180,14 @@
       color:var(--cinza-medio);
       text-align:right;
     }
+
     .pastas-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
       gap:var(--gap);
       margin-top:8px;
     }
+
     .pasta-card{
       background:var(--card-bg);
       border-radius:var(--radius);
@@ -181,11 +196,7 @@
       text-align:center;
       cursor:pointer;
       box-shadow:0 8px 26px rgba(0,0,0,0.8);
-      transition:
-        transform 0.16s ease,
-        box-shadow 0.16s ease,
-        border-color 0.16s ease,
-        background 0.16s ease;
+      transition:transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, background 0.16s ease;
     }
     .pasta-card a{
       text-decoration:none;
@@ -202,6 +213,7 @@
       filter:drop-shadow(0 0 4px rgba(0,0,0,0.9));
       transition:transform 0.16s ease, filter 0.16s ease;
     }
+
     .pasta-titulo{
       font-weight:bold;
       text-transform:uppercase;
@@ -213,6 +225,7 @@
       color:var(--cinza);
       max-width:220px;
     }
+
     .pasta-card:hover{
       transform:translateY(-4px);
       box-shadow:0 14px 32px rgba(0,0,0,0.95);
@@ -223,6 +236,7 @@
       transform:translateY(-2px) scale(1.03);
       filter:drop-shadow(0 0 7px rgba(255,255,0,0.9));
     }
+
     footer{
       margin-top:24px;
       padding-top:10px;
@@ -234,41 +248,57 @@
       justify-content:space-between;
       gap:8px;
     }
+
     footer span{opacity:0.9;}
 
+    /* ============================
+       📱 RESPONSIVO CORRIGIDO
+       ============================ */
     @media(max-width:720px){
       body{padding:16px 10px 22px;}
+
       .app-shell{
         padding:14px 12px 20px;
         border-radius:14px;
         max-width:100%;
       }
+
       header{
         grid-template-columns:1fr;
         justify-items:center;
         text-align:center;
       }
-      .btn-voltar{justify-self:flex-start;}
+
+      /* 🔥 Correção do alinhamento torto */
+      .btn-voltar{
+        justify-self:center;
+      }
+
       .brasao-header{
         height:130px;
         justify-self:center;
         margin-top:4px;
       }
+
       .header-badge{margin-top:8px;}
+
       .context-bar{
         flex-direction:column;
         gap:6px;
         border-radius:12px;
         text-align:center;
       }
+
       .intro{
         font-size:0.9rem;
         padding:0 4px;
       }
+
       .pastas-grid{
         grid-template-columns:repeat(2, minmax(0,1fr));
         gap:16px;
       }
+
       footer{
         flex-direction:column;
         align-items:flex-start;
@@ -296,6 +326,7 @@
     }
   </style>
 </head>
+
 <body>
 <div class="app-shell">
 
@@ -336,11 +367,12 @@
     </div>
 
     <section class="pastas-grid">
+
       <div class="pasta-card">
-        <a href="#">
-          <img src="pasta.png" alt="Planejamento Operacional">
-          <div class="pasta-titulo">Planejamento Operacional</div>
-          <div class="pasta-desc">Planos de operação, diretrizes de serviço e documentos correlatos.</div>
+        <a href="https://docs.google.com/spreadsheets/d/1qhsjWq-DDYWEBInbPNp7P2LRGesVVSP6tHHAfq_24l4/edit?usp=sharing">
+          <img src="pasta.png" alt="Indicadores Bonificáveis">
+          <div class="pasta-titulo">Indicadores Bonificáveis</div>
+          <div class="pasta-desc">Controle dos indicadores criminais.</div>
         </a>
       </div>
 
@@ -354,9 +386,9 @@
 
       <div class="pasta-card">
         <a href="#">
-          <img src="pasta.png" alt="Escalas Operacionais">
-          <div class="pasta-titulo">Escalas Operacionais</div>
-          <div class="pasta-desc">Escalas de patrulhamento, reforços, operações e serviços especiais.</div>
+          <img src="pasta.png" alt="Resultados de Operação">
+          <div class="pasta-titulo">Resultados de Operação</div>
+          <div class="pasta-desc">Planilhas para inserção de resultados de operações.</div>
         </a>
       </div>
 
@@ -375,6 +407,7 @@
           <div class="pasta-desc">Arquivos complementares ligados à atividade operacional.</div>
         </a>
       </div>
+
     </section>
   </main>
 
